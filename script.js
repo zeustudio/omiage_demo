@@ -30,7 +30,7 @@ var count_3 = 0;
 function counting_3() {
     count_3++;
     document.getElementById("count_3").innerHTML = count_3;
-    background(0);
+    backgroud(0);
 }
 //noprotect
 //スピログラフ（内トロコイド）のパラメータ
@@ -45,7 +45,7 @@ function draw() {
     //点や線の太さと色
     strokeWeight(2); stroke(count_1*50,count_2*50,count_3*50);
     //描画準備
-    var maxt=5000, speed=5;//点の数と描画速度
+    var maxt=5000, speed=20;//点の数と描画速度
     var w2=width/2, h2=height/2;
     var r=abs(c-m)+abs(d), cyc=360*abs(m);//画像の外接半径と周回数
     //描画 radians()は度→ラジアン変換
@@ -67,3 +67,7 @@ function keyTyped(){
 function windowResized() {
     centerCanvas();
   }
+
+function save() {
+    save(test.png);
+}
