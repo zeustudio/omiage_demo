@@ -18,6 +18,7 @@ var count_1 = 0;
 function counting_1() {
     count_1++;
     document.getElementById("count_1").innerHTML = count_1;
+    background(0);
 }
 var count_2=0;
 function counting_2() {
