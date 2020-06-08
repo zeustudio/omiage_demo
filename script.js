@@ -8,7 +8,7 @@ function centerCanvas() {
 
 
 function setup() {//最初に1回だけ実行
-    cnv = createCanvas(300, 300);
+    cnv = createCanvas(500, 500);
     //canvas.parent('sketch-holder');
     centerCanvas();
     background(0); 
