@@ -61,6 +61,7 @@ function keyTyped(){
     //c = Math.random() * 50;
     m = Math.random() * 30;
     //d = Math.random() * 50;
+    background(0);
 }
 
 function windowResized() {
