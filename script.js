@@ -24,11 +24,13 @@ var count_2=0;
 function counting_2() {
     count_2++;
     document.getElementById("count_2").innerHTML = count_2;
+    background(0);
 }
 var count_3 = 0;
 function counting_3() {
     count_3++;
     document.getElementById("count_3").innerHTML = count_3;
+    background(0);
 }
 //noprotect
 //スピログラフ（内トロコイド）のパラメータ
