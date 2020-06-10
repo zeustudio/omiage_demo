@@ -19,18 +19,21 @@ function counting_1() {
     count_1++;
     document.getElementById("count_1").innerHTML = count_1;
     background(0);
+    m = (Math.random()+0.2) * 30;
 }
 var count_2=0;
 function counting_2() {
     count_2++;
     document.getElementById("count_2").innerHTML = count_2;
     background(0);
+    m = (Math.random()+0.2) * 30;
 }
 var count_3 = 0;
 function counting_3() {
     count_3++;
     document.getElementById("count_3").innerHTML = count_3;
-    backgroud(0);
+    background(0);
+    m = (Math.random()+0.2) * 30;
 }
 //noprotect
 //スピログラフ（内トロコイド）のパラメータ
@@ -47,7 +50,8 @@ function draw() {
     //描画準備
     var maxt=5000, speed=20;//点の数と描画速度
     var w2=width/2, h2=height/2;
-    var r=abs(c-m)+abs(d), cyc=360*abs(m);//画像の外接半径と周回数
+    var r = abs(c - m) + abs(d);
+    var cyc = 360 * abs(m);//画像の外接半径と周回数
     //描画 radians()は度→ラジアン変換
     for (var i=0; i<speed; i++,t+=cyc/maxt) 
         point(w2*(1+(c-m)*cos(radians(t))/r+d*cos((c-m)/m*radians(t))/r),
@@ -59,7 +63,7 @@ function draw() {
 
 function keyTyped(){
     //c = Math.random() * 50;
-    m = Math.random() * 30;
+    m = (Math.random()+0.5) * 30;
     //d = Math.random() * 50;
     background(0);
 }
