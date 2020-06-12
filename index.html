@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
     <script src="script.js"></script>
     <style>
@@ -41,7 +42,8 @@
         <!-- Our sketch will go here! -->
     </div>
     <p id="comments">コメントを記入してください</p>
-    <textarea name="comment" id="comment"></textarea >
+    <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
+    <p id="comments_num">0文字</p>
     <input type="button" value="SAVE" onclick="save();">
 </body>
 </html>
