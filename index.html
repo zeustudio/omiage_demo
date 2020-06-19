@@ -2,48 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-    <script src="script.js"></script>
+    <title>Title</title>
     <style>
         * {
             margin: 0;
             padding: 0;
-        }
-        html,body{
-            overflow:hidden;
-        }
-        body{
+            font-family: "Helvetica Neue", sans-serif;
             background-color: black;
         }
-        p{
-            color: white;
+
+        html, body {
+            height: 100vh;
         }
-        #canvas{
-            margin-left: auto;
-            margin-right: auto;
+        #container{
+            width: 50vh;
+            float: right;
         }
-        textarea{
-            color: white;
-            background-color: black;
+        #main{
+            width: 50vh;
+            float: left;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/adjustSize.css">
 </head>
 <body>
-    <input type="button" value="感動した" onclick="counting_1();">
-    <p id="count_1">0</p>
-    <input type="button" value="楽しかった" onclick="counting_2();">
-    <p id="count_2">0</p>
-    <input type="button" value="見方が変わった" onclick="counting_3();">
-    <p id="count_3">0</p>
-    <div id="sketch-holder">
-        <!-- Our sketch will go here! -->
-    </div>
-    <p id="comments">コメントを記入してください</p>
-    <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
-    <p id="comments_num">0文字</p>
-    <input type="button" value="SAVE" onclick="save();">
+<div id="container"></div>
+<div id="main"></div>
+    
 </body>
+<script src="js/anime.min.js"></script>
+<script src="js/adjustSize.js"></script>
+<script src="js/circleCollision.js"></script>
+<script>
+    circleManager = new CircleManager('container');
+    circleManager.add("10代以下");
+    circleManager.add("20代");
+    circleManager.add("30代");
+    circleManager.add("40代");
+    circleManager.add("50代");
+</script>
 </html>
