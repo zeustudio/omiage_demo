@@ -1,3 +1,4 @@
+//const { random } = require("./anime.min");
 
 
 var NORTH = 0;
@@ -16,8 +17,8 @@ var diameter = 1;
 var posX;
 var posY;
 
-var poX=20;
-var poY=20;
+var poX=0;
+var poY=0;
 
 var n = 0;
 
@@ -49,9 +50,6 @@ function centerCanvas() {
 }
 
 function draw() {
-  ellipse(0, 0, 20);
-  fill(0);
-  
   if (n % 5 == 0) {
     c = color(random(0,255),random(0,255),random(0,255))
     stroke(c);
@@ -81,9 +79,13 @@ function draw() {
     var y = poX * sin(i) + poY * cos(i);
     line(px, py, x, y);
   }
+
+  ellipse(0, 0, 35);
+  fill(0);
+  
   if (sqrt(sq(poX)+sq(poY)) > 150) {
-    poX = 20;
-    poY = 20;
+    poX = 0;
+    poY = 0;
     n += 1;
   }
 }
@@ -97,4 +99,5 @@ function clearAction(){
 
 
 function windowResized() {
+  centerCanvas()
 }
