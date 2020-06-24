@@ -1,5 +1,12 @@
 //const { random } = require("./anime.min");
 
+document.getElementById("second").style.display = "none";
+document.getElementById("works_1").style.display = "none";
+document.getElementById("works_2").style.display = "none";
+document.getElementById("works_3").style.display = "none";
+document.getElementById("comment").style.display = "none";
+document.getElementById("final").style.display = "none";
+document.getElementById("to_first").style.display ="none";
 
 var NORTH = 0;
 var NORTHEAST = 1;
@@ -38,7 +45,7 @@ function setup() {
   strokeWeight(0.75);
   posX = width / 2;
   posY = height / 2;
-  background(0);
+  background(255);
   pg = createGraphics(w, h);
   frameRate(30);
 }
@@ -66,6 +73,7 @@ function draw() {
     }
   }
   */
+  
   translate(u,v)
   var poiX = poX;
   var poiY = poY;
@@ -90,14 +98,64 @@ function draw() {
   }
 }
 
+var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
+var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨'];
+var picked_works = [0,0,0];
+
+var count_items = 0;
+
+var len = 0;
+function viewStrLen() {
+     len = document.getElementById("area1").value.length;
+     document.getElementById("comments_num").innerText = len + "文字";
+
+     //c = Math.random() * 50;
+     //m = (Math.random()+0.5) * 30;
+     //d = Math.random() * 50;
+     //background(0);
+     //t = 0;
+     //loop();
+}
+
+function counting_4() {
+  document.getElementById(items[count_items]).style.display ="none";
+  count_items ++;
+
+
+  if (count_items > 6) {
+    count_items = 0;
+    console.log("if")
+  }
+
+  document.getElementById(items[count_items]).style.display = "block";
+  if (count_items == 6) {
+    document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_first").style.display = "block";
+  }
+  if (count_items == 0) {
+    document.getElementById("to_next").style.display = "block";
+    document.getElementById("to_first").style.display = "none";
+  }
+  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "文字";
+  document.getElementById("h2_works_2").innerText = works[picked_works[0]] + "文字";
+  document.getElementById("h2_works_3").innerText = works[picked_works[0]] + "文字";
+
+
+  console.log(count_items)
+}
+
+function counting_810() {
+  picked_works.push(0);
+  console.log( works[picked_works[0]] );
+}
+
   
 
 function clearAction(){
   background(0);
 }
 
-
-
 function windowResized() {
   centerCanvas()
 }
+
