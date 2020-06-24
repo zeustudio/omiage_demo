@@ -1,12 +1,32 @@
 //const { random } = require("./anime.min");
 
+
+var second_text = '<h2>気になった作品を選択してください</h2>';
+  
+var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
+var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨'];
+var picked_works = [0, 0, 0];
+
+window.onload = function(){
+  for (let step = 0; step <= works.length; step++){
+    second_text = second_text
+      + '<input type="button" value='
+      + works[step]
+      + ' id='
+      + step
+      + ' onclick="counting;">';
+    console.log(second_text)
+  }
+  document.getElementById('second').innerHTML = second_text ;
+}
+
 document.getElementById("second").style.display = "none";
 document.getElementById("works_1").style.display = "none";
 document.getElementById("works_2").style.display = "none";
 document.getElementById("works_3").style.display = "none";
 document.getElementById("comment").style.display = "none";
 document.getElementById("final").style.display = "none";
-document.getElementById("to_first").style.display ="none";
+document.getElementById("to_first").style.display = "none";
 
 var NORTH = 0;
 var NORTHEAST = 1;
@@ -31,13 +51,13 @@ var n = 0;
 
 var canvas;
 
-var w = 400, h = 400;
+var w = 100, h = 100;
 var button;
 var u = w / 2, v = h / 2;
 let pg;
 function setup() {
   canvas = createCanvas(w, h);
-  canvas.parent('main');
+  canvas.parent('p5js');
   centerCanvas()
   button = createButton('clear');
   button.position(10, h + 10);
@@ -91,16 +111,14 @@ function draw() {
   ellipse(0, 0, 35);
   fill(0);
   
-  if (sqrt(sq(poX)+sq(poY)) > 150) {
+  if (sqrt(sq(poX)+sq(poY)) > 40) {
     poX = 0;
     poY = 0;
     n += 1;
   }
 }
 
-var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
-var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨'];
-var picked_works = [0,0,0];
+
 
 var count_items = 0;
 
@@ -136,20 +154,18 @@ function counting_4() {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
   }
-  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "文字";
-  document.getElementById("h2_works_2").innerText = works[picked_works[0]] + "文字";
-  document.getElementById("h2_works_3").innerText = works[picked_works[0]] + "文字";
 
+  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_2").innerText = works[picked_works[1]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_3").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
 
-  console.log(count_items)
+  console.log(works[picked_works[0]])
 }
 
 function counting_810() {
   picked_works.push(0);
   console.log( works[picked_works[0]] );
 }
-
-  
 
 function clearAction(){
   background(0);

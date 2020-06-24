@@ -1,0 +1,57 @@
+@media screen and (max-width: 480px) {
+
+    body {
+        padding-top:30px;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        width: 95vw;
+    }
+
+    .square {
+        height: calc(95vw * 9/ 16.0);
+    }
+
+    #title__container {
+        order: -2;
+    }
+
+    #title__container p {
+        font-size: 25px;
+    }
+
+    #caption__container {
+        order: -1;
+        display: block;
+        font-size: 14px;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    #buttons__container {
+        width: 95vw;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+    }
+
+    #buttons__container button{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    #buttons__container img{
+        height: min(8vw,50px);
+    }
+
+    .pc_only {
+        display: none;
+    }
+
+    .sp_only {
+        display: block;
+    }
+
+}
