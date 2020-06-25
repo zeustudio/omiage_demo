@@ -7,7 +7,9 @@ var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'fin
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨'];
 var picked_works = [0, 0, 0];
 
-window.onload = function(){
+window.onload = function () {
+
+
   for (let step = 0; step <= works.length; step++){
     second_text = second_text
       + '<input type="button" value='

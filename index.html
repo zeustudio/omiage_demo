@@ -2,7 +2,7 @@
 <html lang="ja" dir="ltr">
   <head>
     <head prefix="og:url" content=>
-    <meta property="og:title" content="対雨" > <br />
+    <meta property="og:title" content="対雨"> <br />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="（キャプション）" />
     <meta property="og:image" content="">
@@ -35,95 +35,11 @@
       </script>
       <script src="https://cdn.jsdelivr.net/npm/modaal@0.4.4/dist/js/modaal.min.js"></script>
       <script src="./modal.js"></script>
-      <style>
-        #p5js{
-            width: 25vw;
-            float:left;
-        }
-        #main{
-            width: 25vw;
-            float:right;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
   </head>
   <body>
     <div id="container">
       <div id="works__container">
-        <div id="p5js"></div>
-        <div id="main">
-        <div id="first">
-            <h1>Projections of impressions -感情の写像-</h1>
-            <h2>この作品について</h2>
-            <p>この作品は他の展示を見てから，その展示の感想を用いて生成される作品です．</p>
-        </div>
-        <div id="second">
-            <h2>気になった作品を選択してください</h2>
-            <input type="button" value="ぼやける境界" id="810" onclick="counting_810();">
-            <input type="button" value="気配の振る舞い" onclick="counting_811();">
-            <input type="button" value="オーディオレーシングゲーム" onclick="counting_812();">
-            <input type="button" value="展示空間" onclick="counting_813();">
-            <input type="button" value="graviter" onclick="counting_814();">
-            <input type="button" value="内と外" onclick="counting_815();">
-            <input type="button" value="居の中の蛙" onclick="counting_816();">
-            <input type="button" value="感情の写像" onclick="counting_817();">
-            <input type="button" value="emotional distance" onclick="counting_818();">
-            <input type="button" value="N.U.M" onclick="counting_819();">
-            <input type="button" value="対雨" onclick="counting_820();">
-        </div>
-        <div id="works_1">
-            <p id="h2_works_1">この作品について，どのような感想を持ちましたか？</p>
-            <p>具体的な感想は，後ほど記入してください．</p>
-            <input type="button" value="楽しい" onclick="counting_1();">
-            <input type="button" value="嬉しい" onclick="counting_1();">
-            <input type="button" value="視点が変わった" onclick="counting_1();">
-            <input type="button" value="愉快だった" onclick="counting_1();">
-            <input type="button" value="11月にまたみたい" onclick="counting_1();">
-            <input type="button" value="もう一息" onclick="counting_1();">
-            <input type="button" value="提案がある" onclick="counting_1();">
-            <input type="button" value="発見があった" onclick="counting_1();">
-        </div>
-        <div id="works_2">
-            <p id="h2_works_2">この作品について，どのような感想を持ちましたか？</p>
-            <p>具体的な感想は，後ほど記入してください．</p>
-            <input type="button" value="楽しい" onclick="counting_2();">
-            <input type="button" value="嬉しい" onclick="counting_2();">
-            <input type="button" value="視点が変わった" onclick="counting_2();">
-            <input type="button" value="愉快だった" onclick="counting_2();">
-            <input type="button" value="11月にまたみたい" onclick="counting_2();">
-            <input type="button" value="もう一息" onclick="counting_2();">
-            <input type="button" value="提案がある" onclick="counting_2();">
-            <input type="button" value="発見があった" onclick="counting_2();">
-        </div>
-        <div id="works_3">
-            <p id="h2_works_3">この作品について，どのような感想を持ちましたか？</p>
-            <p>具体的な感想は，後ほど記入してください．</p>
-            <input type="button" value="楽しい" onclick="counting_3();">
-            <input type="button" value="嬉しい" onclick="counting_3();">
-            <input type="button" value="視点が変わった" onclick="counting_3();">
-            <input type="button" value="愉快だった" onclick="counting_3();">
-            <input type="button" value="11月にまたみたい" onclick="counting_3();">
-            <input type="button" value="もう一息" onclick="counting_3();">
-            <input type="button" value="提案がある" onclick="counting_3();">
-            <input type="button" value="発見があった" onclick="counting_3();">
-        </div>
-        <div id="comment">
-            <h2>それぞれの作品への感想を含めて，展示会の感想を教えてください．</h2>
-            <p>．</p>
-            <p id="comments">コメントを記入してください</p>
-            <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
-            <p id="comments_num">0文字</p>
-        </div>
-        <div id="final">
-            <h2>これがあなたの虹彩です．</h2>
-        </div>
-        <div id="to_next">
-            <input type="button" value="次に進む" onclick="counting_4();">
-        </div>
-        <div id="to_first">
-            <input type="button" value="最初に戻る" onclick="counting_4();">
-        </div>
-        </div>
+        <iframe scrolling="no" src="index1.html" class="square"></iframe>
       </div>
       <div id="title__container">
         <p>対雨</p>
@@ -174,6 +90,4 @@
       </div>
     </div>
   </body>
-  <script src="js/script.js"></script>
-
 </html>
