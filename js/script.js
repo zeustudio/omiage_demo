@@ -182,13 +182,14 @@ function counting(e) {
   var e = e || window.event;
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
-  picked_works.unshift(elemId);
+  picked_works.push(elemId);
   console.log(picked_works)
   if (picked_works.length == 3) {
     to_next()
     document.getElementById("to_next").style.display = "block";
   }
 }
+//リスト"picked_works"に選んだ作品を順番に入れています
 
 function impressed(e) {
   var e = e || window.event;
@@ -227,9 +228,9 @@ function to_next() {
     to_fitst()
   }
 
-  document.getElementById("h2_works_1").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
   document.getElementById("h2_works_2").innerText = works[picked_works[1]] + "について，どのような感想を持ちましたか？";
-  document.getElementById("h2_works_3").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_3").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
 
   console.log(works[picked_works[0]])
 }
