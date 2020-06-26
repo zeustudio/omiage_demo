@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        * {
+        html {
             margin: 0;
             padding: 0;
             font-family: "Helvetica Neue", sans-serif;
@@ -15,11 +15,11 @@
             height: 100vh;
         }
         #p5js{
-            width: 50vh;
+            width: 50%;
             float: left;
         }
         #main{
-            width: 50vh;
+            width: 50%;
             float: right;
         }
     </style>
@@ -48,7 +48,6 @@
 </div>
 <div id="comment">
     <h2>それぞれの作品への感想を含めて，展示会の感想を教えてください．</h2>
-    <p>．</p>
     <p id="comments">コメントを記入してください</p>
     <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
     <p id="comments_num">0文字</p>
@@ -57,10 +56,10 @@
     <h2>これがあなたの虹彩です．</h2>
 </div>
 <div id="to_next">
-    <input type="button" value="次に進む" onclick="counting_4();">
+    <input type="button" value="次に進む" onclick="to_next();">
 </div>
 <div id="to_first">
-    <input type="button" value="最初に戻る" onclick="counting_4();">
+    <input type="button" value="最初に戻る" onclick="to_next();">
 </div>
 </div>
     

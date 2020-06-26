@@ -29,7 +29,8 @@ window.onload = function () {
     console.log(second_text)
   }
   document.getElementById('second').innerHTML = second_text;
-  
+  //secondのコードを書いています．
+
   for (let step = 0; step < impressions.length-1; step++){
     works_1_text = works_1_text
       + '<input type="button" value='
@@ -51,8 +52,10 @@ window.onload = function () {
       + ' onclick="impressed();">';
   }
   document.getElementById('works_1').innerHTML = works_1_text;
-  document.getElementById('works_2').innerHTML = works_2_text ;
+  document.getElementById('works_2').innerHTML = works_2_text;
   document.getElementById('works_3').innerHTML = works_3_text;
+  //works_nのコードを書いています．
+
 }
 
 document.getElementById("second").style.display = "none";
@@ -62,6 +65,7 @@ document.getElementById("works_3").style.display = "none";
 document.getElementById("comment").style.display = "none";
 document.getElementById("final").style.display = "none";
 document.getElementById("to_first").style.display = "none";
+//htmlのそれぞれの要素の非表示を規定しています．
 
 //p5js関係のコードはここからです．
 
@@ -163,7 +167,6 @@ function windowResized() {
   centerCanvas()
 }
 
-
 //p5js関係のコードはここまでです．
 
 var count_items = 0;
@@ -173,6 +176,7 @@ function viewStrLen() {
      len = document.getElementById("area1").value.length;
      document.getElementById("comments_num").innerText = len + "文字";
 }
+//文字数カウントをしています
 
 function counting(e) {
   var e = e || window.event;
@@ -181,7 +185,7 @@ function counting(e) {
   picked_works.unshift(elemId);
   console.log(picked_works)
   if (picked_works.length == 3) {
-    counting_4()
+    to_next()
     document.getElementById("to_next").style.display = "block";
   }
 }
@@ -191,10 +195,10 @@ function impressed(e) {
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
   var current_works_impression = impressions_p[elemId];
-  var current_works = count_items - 2;
+  var current_works = picked_works[count_items - 2];
 }
 
-function counting_4() {
+function to_next() {
   document.getElementById(items[count_items]).style.display ="none";
   count_items++;
   console.log(count_items)
@@ -223,15 +227,12 @@ function counting_4() {
     to_fitst()
   }
 
-  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_1").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
   document.getElementById("h2_works_2").innerText = works[picked_works[1]] + "について，どのような感想を持ちましたか？";
-  document.getElementById("h2_works_3").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
+  document.getElementById("h2_works_3").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
 
   console.log(works[picked_works[0]])
 }
-
-
-
 
 function to_fitst(){
   picked_works = [];
