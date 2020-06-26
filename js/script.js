@@ -2,9 +2,14 @@
 
 
 var second_text = '<h2>気になった作品を選択してください</h2>';
+var works_1_text='<p id="h2_works_1">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
+var works_2_text='<p id="h2_works_2">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
+var works_3_text='<p id="h2_works_3">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
+
   
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨','未選択'];
+var impressions =["楽しい","嬉しい","視点が変わった","愉快だった","11月にまたみたい","もう一息","提案がある","発見があった"]
 var picked_works = [11, 11, 11];
 
 window.onload = function () {
@@ -18,7 +23,33 @@ window.onload = function () {
       + ' onclick="counting();">';
     console.log(second_text)
   }
-  document.getElementById('second').innerHTML = second_text ;
+  document.getElementById('second').innerHTML = second_text;
+  
+  for (let step = 0; step < impressions.length-1; step++){
+    works_1_text = works_1_text
+      + '<input type="button" value='
+      + impressions[step]
+      + ' id='
+      + step
+      + ' onclick="impressed();">';
+    works_2_text = works_2_text
+      + '<input type="button" value='
+      + impressions[step]
+      + ' id='
+      + step
+      + ' onclick="impressed();">';
+    works_3_text = works_3_text
+      + '<input type="button" value='
+      + impressions[step]
+      + ' id='
+      + step
+      + ' onclick="impressed();">';
+  }
+  document.getElementById('works_1').innerHTML = works_1_text;
+  document.getElementById('works_2').innerHTML = works_2_text ;
+  document.getElementById('works_3').innerHTML = works_3_text;
+  console.log(works_3_text)
+
 }
 
 document.getElementById("second").style.display = "none";
