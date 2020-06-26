@@ -29,6 +29,8 @@ document.getElementById("comment").style.display = "none";
 document.getElementById("final").style.display = "none";
 document.getElementById("to_first").style.display = "none";
 
+//p5js関係のコードはここからです．
+
 var NORTH = 0;
 var NORTHEAST = 1;
 var EAST = 2;
@@ -119,7 +121,16 @@ function draw() {
   }
 }
 
+function clearAction(){
+  background(0);
+}
 
+function windowResized() {
+  centerCanvas()
+}
+
+
+//p5js関係のコードはここまでです．
 
 var count_items = 0;
 
@@ -180,13 +191,6 @@ function counting_4() {
 
 
 
-function clearAction(){
-  background(0);
-}
-
-function windowResized() {
-  centerCanvas()
-}
 
 function to_fitst(){
   picked_works = [11, 11, 11];
