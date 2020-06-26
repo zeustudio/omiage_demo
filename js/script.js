@@ -98,7 +98,6 @@ function impressed(e) {
 //"current_works"には，現在感情を選んでいる作品の番号が入ります．番号と作品の対応は上部のリストを確認してください．
 //"current_works_impression"に感情価が入ります（本当は足さなきゃいけません）
 
-
 function to_next() {
   document.getElementById(items[count_items]).style.display ="none";
   count_items++;
