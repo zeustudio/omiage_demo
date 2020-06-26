@@ -4,19 +4,18 @@
 var second_text = '<h2>気になった作品を選択してください</h2>';
   
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
-var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨'];
-var picked_works = [0, 0, 0];
+var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨','未選択'];
+var picked_works = [11, 11, 11];
 
 window.onload = function () {
 
-
-  for (let step = 0; step <= works.length; step++){
+  for (let step = 0; step < works.length-1; step++){
     second_text = second_text
       + '<input type="button" value='
       + works[step]
       + ' id='
       + step
-      + ' onclick="counting;">';
+      + ' onclick="counting();">';
     console.log(second_text)
   }
   document.getElementById('second').innerHTML = second_text ;
@@ -137,17 +136,31 @@ function viewStrLen() {
      //loop();
 }
 
+function counting(e) {
+  var e = e || window.event;
+  var elem = e.target || e.srcElement;
+  var elemId = elem.id;
+  picked_works.unshift(elemId);
+  console.log(picked_works)
+}
+
+
 function counting_4() {
   document.getElementById(items[count_items]).style.display ="none";
-  count_items ++;
-
+  count_items++;
+  console.log(count_items)
 
   if (count_items > 6) {
     count_items = 0;
-    console.log("if")
+  }
+  if (count_items > 1 && count_items < 5) {
+    if (picked_works[count_items - 2] == 11) {
+      count_items = 5;
+    }
   }
 
   document.getElementById(items[count_items]).style.display = "block";
+
   if (count_items == 6) {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_first").style.display = "block";
@@ -155,6 +168,7 @@ function counting_4() {
   if (count_items == 0) {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
+    to_fitst()
   }
 
   document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
@@ -164,10 +178,7 @@ function counting_4() {
   console.log(works[picked_works[0]])
 }
 
-function counting_810() {
-  picked_works.push(0);
-  console.log( works[picked_works[0]] );
-}
+
 
 function clearAction(){
   background(0);
@@ -177,3 +188,6 @@ function windowResized() {
   centerCanvas()
 }
 
+function to_fitst(){
+  picked_works = [11, 11, 11];
+}
