@@ -1,7 +1,7 @@
 //const { random } = require("./anime.min");
 
 
-var second_text = '<h2>気になった作品を選択してください</h2>';
+var second_text = '<h2>気になった作品を3つ選択してください</h2>';
 var works_1_text='<p id="h2_works_1">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
 var works_2_text='<p id="h2_works_2">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
 var works_3_text='<p id="h2_works_3">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
@@ -10,7 +10,7 @@ var works_3_text='<p id="h2_works_3">この作品について，どのような�
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨','未選択'];
 var impressions =["楽しい","嬉しい","視点が変わった","愉快だった","11月にまたみたい","もう一息","提案がある","発見があった"]
-var picked_works = [11, 11, 11];
+var picked_works = [];
 
 window.onload = function () {
 
@@ -184,6 +184,10 @@ function counting(e) {
   var elemId = elem.id;
   picked_works.unshift(elemId);
   console.log(picked_works)
+  if (picked_works.length == 3) {
+    counting_4()
+    document.getElementById("to_next").style.display = "block";
+  }
 }
 
 
@@ -207,6 +211,9 @@ function counting_4() {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_first").style.display = "block";
   }
+  if (count_items == 1) {
+    document.getElementById("to_next").style.display = "none";
+  }
   if (count_items == 0) {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
@@ -224,5 +231,5 @@ function counting_4() {
 
 
 function to_fitst(){
-  picked_works = [11, 11, 11];
+  picked_works = [];
 }
