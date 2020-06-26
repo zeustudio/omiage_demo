@@ -8,8 +8,13 @@ var works_3_text='<p id="h2_works_3">この作品について，どのような�
 
   
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
-var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間','graviter','内と外','居の中の蛙','感情の写像','emotional distance','N.U.M','対雨','未選択'];
-var impressions =["楽しい","嬉しい","視点が変わった","愉快だった","11月にまたみたい","もう一息","提案がある","発見があった"]
+//遷移する画面のリストです
+var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間', 'graviter', '内と外', '居の中の蛙', '感情の写像', 'emotional distance', 'N.U.M', '対雨', '未選択'];
+//作品のリストです
+var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "11月にまたみたい", "もう一息", "提案がある", "発見があった"]
+//リストに表示される感情のリストです
+var impressions_p = [1, 1, 0.5, 0.7, 0.2, 0.2, 0, 0.9];
+//それぞれの感情に合わせた興奮度を[0,1]の数値にしたリストです
 var picked_works = [];
 
 window.onload = function () {
@@ -48,8 +53,6 @@ window.onload = function () {
   document.getElementById('works_1').innerHTML = works_1_text;
   document.getElementById('works_2').innerHTML = works_2_text ;
   document.getElementById('works_3').innerHTML = works_3_text;
-  console.log(works_3_text)
-
 }
 
 document.getElementById("second").style.display = "none";
@@ -169,13 +172,6 @@ var len = 0;
 function viewStrLen() {
      len = document.getElementById("area1").value.length;
      document.getElementById("comments_num").innerText = len + "文字";
-
-     //c = Math.random() * 50;
-     //m = (Math.random()+0.5) * 30;
-     //d = Math.random() * 50;
-     //background(0);
-     //t = 0;
-     //loop();
 }
 
 function counting(e) {
@@ -190,6 +186,13 @@ function counting(e) {
   }
 }
 
+function impressed(e) {
+  var e = e || window.event;
+  var elem = e.target || e.srcElement;
+  var elemId = elem.id;
+  var current_works_impression = impressions_p[elemId];
+  var current_works = count_items - 2;
+}
 
 function counting_4() {
   document.getElementById(items[count_items]).style.display ="none";
