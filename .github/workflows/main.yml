@@ -25,7 +25,7 @@ jobs:
     - name: Copy
       run: |
         mkdir -p ./works/Projections_of_impressions
-        rsync -Rr ./* ./works/Projections_of_impressions/
+        rsync -Rr ./master/* ./works/Projections_of_impressions/
 
     - uses: iksaku/openstack-swift-action@master
       env:

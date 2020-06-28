@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <head prefix="og:url" content=>
+    <meta property="og:title" content="対雨" > <br />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="（キャプション）" />
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="対雨 - 東京大学制作展extra" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="https://extra2020.iiiexhibition.com/works/___.html" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./workspage.css">
+    <link rel="stylesheet" type="text/css" href="./workspage_sp.css">
+    <title>対雨</title>
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'pez4ecw',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/modaal@0.4.4/dist/js/modaal.min.js"></script>
+      <script src="./modal.js"></script>
+      <style>
+        #p5js{
+            width: 25vw;
+            float:left;
+        }
+        #main{
+            width: 25vw;
+            float:right;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="works__container">
+        <div id="p5js"></div>
+        <div id="main">
+        <div id="first">
+            <h1>Projections of impressions -感情の写像-</h1>
+            <h2>この作品について</h2>
+            <p>この作品は他の展示を見てから，その展示の感想を用いて生成される作品です．</p>
+        </div>
+        <div id="second">
+            <h2>気になった作品を選択してください</h2>
+            <input type="button" value="ぼやける境界" id="810" onclick="counting_810();">
+            <input type="button" value="気配の振る舞い" onclick="counting_811();">
+            <input type="button" value="オーディオレーシングゲーム" onclick="counting_812();">
+            <input type="button" value="展示空間" onclick="counting_813();">
+            <input type="button" value="graviter" onclick="counting_814();">
+            <input type="button" value="内と外" onclick="counting_815();">
+            <input type="button" value="居の中の蛙" onclick="counting_816();">
+            <input type="button" value="感情の写像" onclick="counting_817();">
+            <input type="button" value="emotional distance" onclick="counting_818();">
+            <input type="button" value="N.U.M" onclick="counting_819();">
+            <input type="button" value="対雨" onclick="counting_820();">
+        </div>
+        <div id="works_1">
+            <p id="h2_works_1">この作品について，どのような感想を持ちましたか？</p>
+            <p>具体的な感想は，後ほど記入してください．</p>
+            <input type="button" value="楽しい" onclick="counting_1();">
+            <input type="button" value="嬉しい" onclick="counting_1();">
+            <input type="button" value="視点が変わった" onclick="counting_1();">
+            <input type="button" value="愉快だった" onclick="counting_1();">
+            <input type="button" value="11月にまたみたい" onclick="counting_1();">
+            <input type="button" value="もう一息" onclick="counting_1();">
+            <input type="button" value="提案がある" onclick="counting_1();">
+            <input type="button" value="発見があった" onclick="counting_1();">
+        </div>
+        <div id="works_2">
+            <p id="h2_works_2">この作品について，どのような感想を持ちましたか？</p>
+            <p>具体的な感想は，後ほど記入してください．</p>
+            <input type="button" value="楽しい" onclick="counting_2();">
+            <input type="button" value="嬉しい" onclick="counting_2();">
+            <input type="button" value="視点が変わった" onclick="counting_2();">
+            <input type="button" value="愉快だった" onclick="counting_2();">
+            <input type="button" value="11月にまたみたい" onclick="counting_2();">
+            <input type="button" value="もう一息" onclick="counting_2();">
+            <input type="button" value="提案がある" onclick="counting_2();">
+            <input type="button" value="発見があった" onclick="counting_2();">
+        </div>
+        <div id="works_3">
+            <p id="h2_works_3">この作品について，どのような感想を持ちましたか？</p>
+            <p>具体的な感想は，後ほど記入してください．</p>
+            <input type="button" value="楽しい" onclick="counting_3();">
+            <input type="button" value="嬉しい" onclick="counting_3();">
+            <input type="button" value="視点が変わった" onclick="counting_3();">
+            <input type="button" value="愉快だった" onclick="counting_3();">
+            <input type="button" value="11月にまたみたい" onclick="counting_3();">
+            <input type="button" value="もう一息" onclick="counting_3();">
+            <input type="button" value="提案がある" onclick="counting_3();">
+            <input type="button" value="発見があった" onclick="counting_3();">
+        </div>
+        <div id="comment">
+            <h2>それぞれの作品への感想を含めて，展示会の感想を教えてください．</h2>
+            <p>．</p>
+            <p id="comments">コメントを記入してください</p>
+            <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
+            <p id="comments_num">0文字</p>
+        </div>
+        <div id="final">
+            <h2>これがあなたの虹彩です．</h2>
+        </div>
+        <div id="to_next">
+            <input type="button" value="次に進む" onclick="counting_4();">
+        </div>
+        <div id="to_first">
+            <input type="button" value="最初に戻る" onclick="counting_4();">
+        </div>
+        </div>
+      </div>
+      <div id="title__container">
+        <p>対雨</p>
+        <hr class="sp_only">
+      </div>
+      <div id="author__container">
+        <div class="author__div">
+          <div class="author__column">
+            <ul class="author__job">
+              <li>Director</li>
+              <li>Direcion, Design</li>
+              <li>Motion</li>
+            </ul>
+            <ul class="author__name">
+              <li>Masaki Ohno</li>
+              <li>Ayu Kitajima</li>
+              <li>Takaya Hasegawa</li>
+            </ul>
+          </div>
+        </div>
+        <div class="author__div pc_only">
+          <div class="author__column">
+            <ul class="author__job">
+              <li>Motion</li>
+              <li>Music</li>
+              <li>Engineering</li>
+            </ul>
+            <ul class="author__name">
+              <li>Yo Mishima</li>
+              <li>Tomoyasu Taka</li>
+              <li>Yoshimori Yoshikawa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="caption__container">
+        <p>言葉を定義することは現象や存在を枠組みに閉じ込めると同時に，気付かなかった視点や情景を認識する後押しをする役割がある．この作品では不自由の象徴として「雨」を取り上げ，スマートフォンの画面を水面に見立てることで，1日の中で変化していく雨を視覚的・聴覚的に表現することを試みた．</p>
+      </div>
+      <hr class="pc_only">
+      <div id="buttons__container">
+        <button type="button" class="button_speak"><img src="./img/button_speak@2x.png" alt=""></button>
+        <button type="button" class="button_good"><img src="./img/button_good1@2x.png" alt=""></button>
+        <button type="button" class="button_twitter"><img src="./img/button_twitter@2x.png" alt=""></button>
+        <button type="button" class="button_back"><img src="./img/button_back@2x.png" alt=""></button>
+      </div>
+      <div id="footer__container">
+        <p>@iiiEx2020</p>
+      </div>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
+
+</html>
