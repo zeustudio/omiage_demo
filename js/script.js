@@ -1,7 +1,7 @@
-var second_text = '<h2>気になった作品を3つ選択してください</h2>';
-var works_1_text='<p id="h2_works_1">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
-var works_2_text='<p id="h2_works_2">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
-var works_3_text='<p id="h2_works_3">この作品について，どのような感想を持ちましたか？</p><p>具体的な感想は，後ほど記入してください．</p>'
+var second_text = '<p id="comments"> 気になった作品を3つ選択してください<p> <div id=img_works>';
+var works_1_text = '<p id="h2_works_1">あなたはこの作品にどのような感情を持ちましたか？</p>';
+var works_2_text = '<p id="h2_works_2">あなたはこの作品にどのような感情を持ちましたか？</p>';
+var works_3_text = '<p id="h2_works_3">あなたはこの作品にどのような感情を持ちましたか？</p>';
 
   
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
@@ -18,13 +18,13 @@ window.onload = function () {
 
   for (let step = 0; step < works.length-1; step++){
     second_text = second_text
-      + '<input type="button" value='
-      + works[step]
-      + ' id='
+      + '<img src="img_works/'
+      + step
+      + '.png" id='
       + step
       + ' onclick="counting();">';
-    console.log(second_text)
   }
+  second_text+'</div>'
   document.getElementById('second').innerHTML = second_text;
   //secondのコードを書いています．
 
