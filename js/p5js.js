@@ -75,6 +75,7 @@ function draw() {
 
 
 let animationGif_transparent;;
+
 function preload() {
     // GIFアニメーションのp5.jsイメージ
     animationGif_transparent = createImg(src="./img/intro.gif");
