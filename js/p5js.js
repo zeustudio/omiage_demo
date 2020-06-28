@@ -78,7 +78,7 @@ let animationGif_transparent;;
 
 function preload() {
     // GIFアニメーションのp5.jsイメージ
-    animationGif_transparent = createImg(src="./img/intro.gif");
+    animationGif_transparent = createImg(src="./img/intro_black.gif");
 }
 
 //p5js関係のコードはここまでです．
