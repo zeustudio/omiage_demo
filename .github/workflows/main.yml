@@ -24,8 +24,9 @@ jobs:
 
     - name: Copy
       run: |
-        mkdir -p ./works/Projections_of_impressions
-        cp -r ./master/* ./works/Projections_of_impressions/
+        mkdir -p ../works/Projections_of_impressions
+        cp -r ./* ../works/Projections_of_impressions/
+        mv ../works ./
 
     - uses: iksaku/openstack-swift-action@master
       env:
