@@ -4,6 +4,7 @@ html {
     font-family: source-han-serif-japanese, serif;
     font-weight: 500;
     font-style: normal;
+    font-size: 15px;
 }
 
 body {
@@ -38,6 +39,8 @@ body {
 p{
     margin-block-start: 0;
     margin-block-end: 0;
+    padding: 10px 15px; 
+
 
 }
 #comments{

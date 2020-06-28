@@ -1,4 +1,4 @@
-var second_text = '<p id="comments"> 気になった作品を3つ選択してください<p> <div id=img_works>';
+var second_text = '<p id="comments"> 気になった作品を3つ選択してください</p> <div id=img_works>';
 var works_1_text = '<p id="h2_works_1">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_2_text = '<p id="h2_works_2">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_3_text = '<p id="h2_works_3">あなたはこの作品にどのような感情を持ちましたか？</p>';
