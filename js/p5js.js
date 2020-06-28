@@ -23,7 +23,7 @@ function setup() {
 function draw() {
 
     // GIFアニメーションの位置指定
-    animationGif_transparent.position(0,0);
+  animationGif_transparent.position(0,0);
 
   var _x, _y;
   var A;

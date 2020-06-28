@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        
-    </style>
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'hfc4eih',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,8 +20,11 @@
 <body>
 <div id="p5js"></div>
 <div id="main">
+<div id="title">
+    <p id="title_en">Projections of impressions<br><span style="font-size:30px; letter-spacing: 3px;">感情の写像</span></p>
+</div>
 <div id="first">
-    <h1>Projections of impressions -感情の写像-</h1>
+    
     <h2>この作品について</h2>
     <p>この作品は他の展示を見てから，その展示の感想を用いて生成される作品です．</p>
 </div>
@@ -31,16 +41,14 @@
     
 </div>
 <div id="comment">
-    <h2>それぞれの作品への感想を含めて，展示会の感想を教えてください．</h2>
-    <p id="comments">コメントを記入してください</p>
+    <p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</h2>
     <textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea >
-    <p id="comments_num">0文字</p>
 </div>
 <div id="final">
     <h2>これがあなたの虹彩です．</h2>
 </div>
-<div id="to_next">
-    <input type="button" value="次に進む" onclick="to_next();">
+<div>
+    <p id="to_next" onclick="to_next();">次に進む→</p>
 </div>
 <div id="to_first">
     <input type="button" value="最初に戻る" onclick="to_next();">
