@@ -22,7 +22,6 @@ body {
 #main{
     width: 50%;
     float: right;
-<<<<<<< HEAD
     position: relative;
     height: calc(100vh - 100px);
 }
@@ -43,13 +42,13 @@ p{
 }
 #comments{
     text-align: left;
-    font: SemiBold 15px/20px;
+    font-size: 15px;
     letter-spacing: 1.95px;
 
 }
 #to_next{
     text-align: right;
-    font: SemiBold 18px;
+    font-size: 18px;
     letter-spacing: 0.9px;
 
     position: absolute;
@@ -57,11 +56,8 @@ p{
     bottom: 0;
 }
 
-=======
-}
 
 .p5Canvas{
    z-index: 100;
    position: absolute;
 }
->>>>>>> 33f059b179cc1c2d9f7d2df98a0d87c2a9e6d5c0
