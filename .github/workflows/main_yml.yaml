@@ -29,9 +29,9 @@ jobs:
 
     - uses: iksaku/openstack-swift-action@master
       env:
-        OS_AUTH_URL: ${{ https://identity.tyo2.conoha.io }}
-        OS_PASSWORD: ${{ DLTWjPdYwnJDxS1K7rs87AbSNYz3vFuuuTstTE474LoYUo3c }}
-        OS_USERNAME: ${{ gncu47960885 }}
-        OS_TENANT_NAME: ${{ gnct47960885 }}
+        OS_AUTH_URL: ${{ secrets.OS_AUTH_URL }}
+        OS_PASSWORD: ${{ secrets.OS_PASSWORD }}
+        OS_USERNAME: ${{ secrets.OS_USERNAME }}
+        OS_TENANT_NAME: ${{ secrets.OS_TENANT_NAME }}
       with:
         args: upload iiiex ./works/Projections_of_impressions/*
