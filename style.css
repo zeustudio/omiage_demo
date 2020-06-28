@@ -17,7 +17,7 @@ html, body {
     float: right;
 }
 
-p5Canvas{
+.p5Canvas{
    z-index: 100;
    position: absolute;
 }
