@@ -73,6 +73,16 @@ p{
     right: 0;
     bottom: 0;
 }
+#to_back{
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 0.9px;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 #to_first{
     text-align: right;
     font-size: 18px;

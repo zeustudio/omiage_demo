@@ -49,6 +49,7 @@ document.getElementById("works_3").style.display = "none";
 document.getElementById("comment").style.display = "none";
 document.getElementById("final").style.display = "none";
 document.getElementById("to_first").style.display = "none";
+document.getElementById("to_back").style.display = "none";
 //htmlのそれぞれの要素の非表示を規定しています．
 
 
@@ -107,12 +108,10 @@ function to_next() {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
     to_fitst()
-  }
-  if (count_items == 1) {
+  }else if (count_items == 1) {
     document.getElementById("to_next").style.display = "none";
-  }
-  if (count_items == 2) {
-   
+  }else if (count_items == 2) {
+    document.getElementById("to_back").style.display = "block";
   works_1_text = '<div id=works_box><img src="img_works/'
   + picked_works[0]
       + '.png" id=img_works> <div id=works_text><p id=comments>'
@@ -175,8 +174,34 @@ function to_next() {
         + '.png" id=img_works></div>'
         + comment_text
       document.getElementById('comment').innerHTML = comment_text;
+  }else if (count_items == 6) {
+    document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_back").style.display = "none";
+    document.getElementById("to_first").style.display = "block";
   }
+}
 
+function to_back() {
+  document.getElementById(items[count_items]).style.display ="none";
+  count_items = count_items - 1;
+  console.log(count_items)
+
+  document.getElementById(items[count_items]).style.display = "block";
+
+ 
+ 
+  if (count_items == 0) {
+    document.getElementById("to_next").style.display = "block";
+    document.getElementById("to_first").style.display = "none";
+    document.getElementById("to_back").style.display = "none";
+  }else if (count_items == 1) {
+    document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_back").style.display = "none";
+    to_fitst()
+  } else {
+    document.getElementById("to_back").style.display = "block";
+  }
+  
   if (count_items == 6) {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_first").style.display = "block";
