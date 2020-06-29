@@ -99,6 +99,7 @@ p{
 #works_text{
     float: left;
     margin-left: 20px;
+    width: calc(100vh - 250px);
 }
 #works_box{
     height: auto;

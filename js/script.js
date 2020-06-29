@@ -8,6 +8,17 @@ var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'fin
 //遷移する画面のリストです
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間', 'graviter', '内と外', '居の中の蛙', '感情の写像', 'emotional distance', 'N.U.M', '対雨', '未選択'];
 //作品のリストです
+var works_desc = ['ディスプレイを紙で覆うことで境界を曖昧にする映像作品。',
+  '気配とは何か．この場でのあなたの気配はどうふるまうだろうか．',
+  '音だけで疾走するレースゲーム！キミはそこにどんな世界を視る？',
+  'あなたがつけている色眼鏡は何色だろうか，あなたの不自由は何色だろうか．',
+  '重力からの解放は自由か不自由か。',
+  '内に出る、外に入る、内は外で、外は内。\nあるいは…',
+  'これは井戸の生配信である。限られた素材を使う蛙の表現とはー',
+  'すべての作品を観ることでこの作品は完成する…',
+  '感情の色をまとったアバターとなってバーチャル空間で交流しよう',
+  '数・數・number・número・संख्या・رقم・Число・সংখ্যা・数字・nummer・nomer・숫자・ਗਿਣਤੀ・సంఖ్య・nombre・संख्या・எண்・numero…',
+  'ディスプレイを水面に見立て、雨の移ろいを表現した映像作品'];
 var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "11月にまたみたい", "もう一息", "提案がある", "発見があった"]
 //リストに表示される感情のリストです
 var impressions_p = [1, 1, 0.5, 0.7, 0.2, 0.2, 0, 0.9];
@@ -104,31 +115,32 @@ function to_next() {
     to_fitst()
   }
   if (count_items == 2) {
+   
   works_1_text = '<div id=works_box><img src="img_works/'
   + picked_works[0]
       + '.png" id=img_works> <div id=works_text><p id=comments>'
       + works[picked_works[0]]
       +'について</p > '
     + '<p id=contents>'
-    + 'テストの文章です'
+    + works_desc[picked_works[0]]
     + '</p></div></div><div id=sentiment_list>'
     + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
     works_2_text = '<div id=works_box><img src="img_works/'
   + picked_works[1]
       + '.png" id=img_works> <div id=works_text><p id=comments>'
       +works[picked_works[1]]
-      + 'この作品について</p > '
+      + 'について</p > '
     + '<p id=contents>'
-    + 'テストの文章です'
+    + works_desc[picked_works[1]]
       + '</p></div></div><div id=sentiment_list>'
       + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
     works_3_text = '<div id=works_box><img src="img_works/'
     + picked_works[2]
       + '.png" id=img_works> <div id=works_text> <p id=comments>'
       +works[picked_works[2]]
-      +'この作品について</p > '
+      +'について</p > '
       + '<p id=contents>'
-      + 'テストの文章です'
+      + works_desc[picked_works[2]]
       + '</p></div></div><div id=sentiment_list>'
       + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
     
