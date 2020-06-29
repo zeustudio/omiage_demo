@@ -91,3 +91,19 @@ button:hover img {
 .sp_only {
     display: none;
 }
+
+.title_jp {
+   display: block;
+}
+ 
+.title_en {
+   display: none;
+}
+
+.caption_jp {
+   display: block;
+}
+ 
+.caption_en {
+   display: none;
+}
