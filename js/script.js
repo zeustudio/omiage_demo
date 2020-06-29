@@ -2,8 +2,8 @@ var second_text = '<p id="comments"> 気になった作品を3つ選択してく
 var works_1_text = '<p id="h2_works_1">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_2_text = '<p id="h2_works_2">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_3_text = '<p id="h2_works_3">あなたはこの作品にどのような感情を持ちましたか？</p>';
+var comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
 
-  
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
 //遷移する画面のリストです
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間', 'graviter', '内と外', '居の中の蛙', '感情の写像', 'emotional distance', 'N.U.M', '対雨', '未選択'];
@@ -102,17 +102,15 @@ function to_next() {
 
   document.getElementById(items[count_items]).style.display = "block";
 
-  if (count_items == 6) {
-    document.getElementById("to_next").style.display = "none";
-    document.getElementById("to_first").style.display = "block";
-  }
-  if (count_items == 1) {
-    document.getElementById("to_next").style.display = "none";
-  }
+ 
+ 
   if (count_items == 0) {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
     to_fitst()
+  }
+  if (count_items == 1) {
+    document.getElementById("to_next").style.display = "none";
   }
   if (count_items == 2) {
    
@@ -169,12 +167,25 @@ function to_next() {
         document.getElementById('works_3').innerHTML = works_3_text+'</div>';
         //works_nのコードを書いています．
     
-    console.log(works[picked_works[0]])
-    
+        comment_text = '<div id=comment_works_box><img src="img_works/'
+        + picked_works[0]
+        + '.png" id=img_works><img src="img_works/'
+        + picked_works[1]
+        + '.png" id=img_works><img src="img_works/'
+        + picked_works[2]
+        + '.png" id=img_works></div>'
+        + comment_text
+      document.getElementById('comment').innerHTML = comment_text;
+  }
 
+  if (count_items == 6) {
+    document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_first").style.display = "block";
   }
 }
 
 function to_fitst(){
   picked_works = [];
+  comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
+
 }

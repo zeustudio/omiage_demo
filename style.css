@@ -120,3 +120,17 @@ p{
 #sentiment_list{
     clear: both;
 }
+
+#comments_box{
+    clear:both;
+}
+
+#comment_works_box{
+    float:left;
+    margin-bottom: 20px;
+}
+
+#comment{
+    margin-top: 20px;
+    
+}
