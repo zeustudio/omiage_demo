@@ -94,12 +94,12 @@ p{
 }
 
 input{
-    width: 80px; 
-    height: 80px;
+    width: 100px; 
+    height: 40px;
     padding: 10px 10px;
     margin: 5px; 
     font-size: 12px;
-    border-radius: 40px; 
+    border-radius: 20px; 
     border: 0px solid #3656634D; 
     box-sizing: border-box; 
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -118,10 +118,11 @@ input{
     height: 72px;
     padding: 10px 15px; 
     font-size: 12px;
-    background-color: #FFFFFF98;
-    border-radius: 10px; 
-    border: 1px solid #3656634D; 
+    border-radius: 20px; 
+    border: 0px solid #3656634D; 
     box-sizing: border-box; 
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
 }
 
 #h2_works{
