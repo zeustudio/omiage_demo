@@ -28,30 +28,7 @@ window.onload = function () {
   document.getElementById('second').innerHTML = second_text;
   //secondのコードを書いています．
 
-  for (let step = 0; step < impressions.length-1; step++){
-    works_1_text = works_1_text
-      + '<input type="button" value='
-      + impressions[step]
-      + ' id='
-      + step
-      + ' onclick="impressed();">';
-    works_2_text = works_2_text
-      + '<input type="button" value='
-      + impressions[step]
-      + ' id='
-      + step
-      + ' onclick="impressed();">';
-    works_3_text = works_3_text
-      + '<input type="button" value='
-      + impressions[step]
-      + ' id='
-      + step
-      + ' onclick="impressed();">';
-  }
-  document.getElementById('works_1').innerHTML = works_1_text;
-  document.getElementById('works_2').innerHTML = works_2_text;
-  document.getElementById('works_3').innerHTML = works_3_text;
-  //works_nのコードを書いています．
+  
 
 }
 
@@ -126,12 +103,64 @@ function to_next() {
     document.getElementById("to_first").style.display = "none";
     to_fitst()
   }
+  if (count_items == 2) {
+  works_1_text = '<div id=works_box><img src="img_works/'
+  + picked_works[0]
+      + '.png" id=img_works> <div id=works_text><p id=comments>'
+      + works[picked_works[0]]
+      +'について</p > '
+    + '<p id=contents>'
+    + 'テストの文章です'
+    + '</p></div></div><div id=sentiment_list>'
+    + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
+    works_2_text = '<div id=works_box><img src="img_works/'
+  + picked_works[1]
+      + '.png" id=img_works> <div id=works_text><p id=comments>'
+      +works[picked_works[1]]
+      + 'この作品について</p > '
+    + '<p id=contents>'
+    + 'テストの文章です'
+      + '</p></div></div><div id=sentiment_list>'
+      + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
+    works_3_text = '<div id=works_box><img src="img_works/'
+    + picked_works[2]
+      + '.png" id=img_works> <div id=works_text> <p id=comments>'
+      +works[picked_works[2]]
+      +'この作品について</p > '
+      + '<p id=contents>'
+      + 'テストの文章です'
+      + '</p></div></div><div id=sentiment_list>'
+      + '<p id=comments>あなたはこの作品に<br>どのような感情を持ちましたか？</p>';
+    
+        for (let step = 0; step < impressions.length; step++){
+          works_1_text = works_1_text
+            + '<input type="button" value='
+            + impressions[step]
+            + ' id='
+            + step
+            + ' onclick="impressed();">';
+          works_2_text = works_2_text
+            + '<input type="button" value='
+            + impressions[step]
+            + ' id='
+            + step
+            + ' onclick="impressed();">';
+          works_3_text = works_3_text
+            + '<input type="button" value='
+            + impressions[step]
+            + ' id='
+            + step
+            + ' onclick="impressed();">';
+        }
+        document.getElementById('works_1').innerHTML = works_1_text+'</div>';
+        document.getElementById('works_2').innerHTML = works_2_text+'</div>';
+        document.getElementById('works_3').innerHTML = works_3_text+'</div>';
+        //works_nのコードを書いています．
+    
+    console.log(works[picked_works[0]])
+    
 
-  document.getElementById("h2_works_1").innerText = works[picked_works[0]] + "について，どのような感想を持ちましたか？";
-  document.getElementById("h2_works_2").innerText = works[picked_works[1]] + "について，どのような感想を持ちましたか？";
-  document.getElementById("h2_works_3").innerText = works[picked_works[2]] + "について，どのような感想を持ちましたか？";
-
-  console.log(works[picked_works[0]])
+  }
 }
 
 function to_fitst(){
