@@ -20,7 +20,7 @@ var w1 = 0;
 var s = 0;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(300, 300);
   colorMode(RGB, 255, 255, 255, 100);
   blendMode(ADD);
   noFill();
