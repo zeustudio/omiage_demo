@@ -12,7 +12,7 @@ var lineWeight = 0.1;
 var lineColor;
 var lineAlpha = 100;
 
-var connectionRadius = 80;
+var connectionRadius = 60;
 var connectionRamp = 6;
 
 var i1 = 0;
@@ -20,7 +20,7 @@ var w1 = 0;
 var s = 0;
 
 function setup() {
-  createCanvas(300, 300);
+  createCanvas(350, 350);
   colorMode(RGB, 255, 255, 255, 100);
   blendMode(ADD);
   noFill();
