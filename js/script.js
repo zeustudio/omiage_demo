@@ -23,6 +23,8 @@ var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だ
 var impressions_p = [1, 1, 0.5, 0.7, 0.2, 0.2, 0, 0.9];
 //それぞれの感情に合わせた興奮度を[0,1]の数値にしたリストです
 var picked_works = [];
+var current_works_impression = 0;
+var works_impression = [0,0,0];
 
 window.onload = function () {
 
@@ -75,13 +77,15 @@ function counting(e) {
 }
 //リスト"picked_works"に選んだ作品を順番に入れています
 
+
 function impressed(e) {
   var e = e || window.event;
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
-  var current_works_impression = impressions_p[elemId];
-  var current_works = picked_works[count_items - 2];
+  current_works_impression = current_works_impression + impressions_p[elemId];
+  console.log(current_works_impression);
 }
+
 // 感情がクリックされたときに走るfunctionです．
 //"current_works"には，現在感情を選んでいる作品の番号が入ります．番号と作品の対応は上部のリストを確認してください．
 //"current_works_impression"に感情価が入ります（本当は足さなきゃいけません）
@@ -174,10 +178,53 @@ function to_next() {
         + '.png" id=img_works></div>'
         + comment_text
       document.getElementById('comment').innerHTML = comment_text;
-  }else if (count_items == 6) {
+
+  } else if (count_items == 3) {
+    works_impression[count_items-3]=current_works_impression;
+    console.log(works_impression);
+    current_works_impression = 0;
+  } else if (count_items == 4) {
+    works_impression[count_items-3]=current_works_impression;
+    current_works_impression = 0;
+  } else if (count_items == 5) {
+    works_impression[count_items-3]=current_works_impression;
+    current_works_impression = 0;
+  } else if (count_items == 6) {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_back").style.display = "none";
     document.getElementById("to_first").style.display = "block";
+    const user_text = document.getElementById("area1").value;
+    console.log(user_text);
+    $.ajax({
+      type: "POST",
+      url: "https://extra2020-dev.iiiexhibition.com/souvenirs.json",
+      headers: {
+          "Authorization" : "Basic aWlpZXg6c2Vpc2FrdXRlTg==",
+       },
+      data: JSON.stringify({
+          "impression":user_text,
+          "works_1":picked_works[0],
+          "works_2":picked_works[1],
+          "works_3":picked_works[2],
+          "iris_11":works_impression[0],
+          "iris_12":works_impression[1],
+          "iris_13":works_impression[2],
+          "iris_14":0,
+          "iris_21":0,
+          "iris_22":0,
+          "iris_23":0,
+          "iris_24":0,
+          "iris_31":0,
+          "iris_32":0,
+          "iris_33":0,
+          "iris_34":0
+      }),
+      dataType: "json",
+      contentType: "application/json",
+      error: function(e) {
+          console.log(e);
+      }
+  })
   }
 }
 
@@ -211,5 +258,6 @@ function to_back() {
 function to_fitst(){
   picked_works = [];
   comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
-
+  current_works_impression = 0;
+  works_impression = [];
 }
