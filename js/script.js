@@ -198,9 +198,6 @@ function to_next() {
     $.ajax({
       type: "POST",
       url: "https://extra2020-dev.iiiexhibition.com/souvenirs.json",
-      headers: {
-          "Authorization" : "Basic aWlpZXg6c2Vpc2FrdXRlTg==",
-       },
       data: JSON.stringify({
           "impression":user_text,
           "works_1":picked_works[0],
