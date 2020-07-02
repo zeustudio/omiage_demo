@@ -21,11 +21,11 @@ var works_desc = ['ディスプレイを紙で覆うことで境界を曖昧に�
   'ディスプレイを水面に見立て、雨の移ろいを表現した映像作品'];
 var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "11月にまたみたい", "もう一息", "提案がある", "発見があった"]
 //リストに表示される感情のリストです
-var impressions_p = [1, 1, 0.5, 0.7, 0.2, 0.2, 0, 0.9];
+var impressions_p = [2, 3, 5, 7, 11, 13, 17, 19];
 //それぞれの感情に合わせた興奮度を[0,1]の数値にしたリストです
 var picked_works = [];
-var current_works_impression = 0;
-var works_impression = [0,0,0];
+var current_works_impression = 1;
+var works_impression = [1,1,1];
 
 window.onload = function () {
 
@@ -56,7 +56,7 @@ document.getElementById("to_back").style.display = "none";
 //htmlのそれぞれの要素の非表示を規定しています．
 
 
-var count_items = 0;
+var count_items = 0; //ページ数
 
 var len = 0;
 function viewStrLen() {
@@ -83,7 +83,7 @@ function impressed(e) {
   var e = e || window.event;
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
-  current_works_impression = current_works_impression + impressions_p[elemId];
+  current_works_impression = current_works_impression * impressions_p[elemId];
   console.log(current_works_impression);
 }
 
