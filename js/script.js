@@ -183,13 +183,13 @@ function to_next() {
   } else if (count_items == 3) {
     works_impression[count_items-3]=current_works_impression;
     console.log(works_impression);
-    current_works_impression = 0;
+    current_works_impression = 1;
   } else if (count_items == 4) {
     works_impression[count_items-3]=current_works_impression;
-    current_works_impression = 0;
+    current_works_impression = 1;
   } else if (count_items == 5) {
     works_impression[count_items-3]=current_works_impression;
-    current_works_impression = 0;
+    current_works_impression = 1;
   } else if (count_items == 6) {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_back").style.display = "none";
