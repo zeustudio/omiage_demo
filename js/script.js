@@ -1,28 +1,28 @@
 
-var second_text = '<p id="comments"> 気になった作品を3つ選択してください</p> <div id=img_works>';
+var second_text = '<p id="comments"> 気になった作品を3つ選択してください．</p> <div id=img_works>';
 var works_1_text = '<p id="h2_works_1">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_2_text = '<p id="h2_works_2">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_3_text = '<p id="h2_works_3">あなたはこの作品にどのような感情を持ちましたか？</p>';
-var comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
+var comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください．</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
 
 var items = ['first', 'second', 'works_1', 'works_2', 'works_3', 'comment', 'final'];
 //遷移する画面のリストです
 var works = ['ぼやける境界', '気配の振る舞い', 'オーディオレーシングゲーム', '展示空間', 'graviter', '内と外', '居の中の蛙', 'emotional distance', 'N.U.M', '対雨', '未選択'];
 //作品のリストです
-var works_desc = ['ディスプレイを紙で覆うことで境界を曖昧にする映像作品。',
+var works_desc = ['ディスプレイを紙で覆うことで境界を曖昧にする映像作品',
   '気配とは何か．この場でのあなたの気配はどうふるまうだろうか．',
   '音だけで疾走するレースゲーム！キミはそこにどんな世界を視る？',
   'あなたがつけている色眼鏡は何色だろうか，あなたの不自由は何色だろうか．',
   '重力からの解放は自由か不自由か。',
-  '内に出る、外に入る、内は外で、外は内。\nあるいは…',
-  'これは井戸の生配信である。限られた素材を使う蛙の表現とはー',
+  '内に出る，外に入る，内は外で，外は内．\nあるいは…',
+  'これは井戸の生配信である．限られた素材を使う蛙の表現とはー',
   '感情の色をまとったアバターとなってバーチャル空間で交流しよう',
   '数・數・number・número・संख्या・رقم・Число・সংখ্যা・数字・nummer・nomer・숫자・ਗਿਣਤੀ・సంఖ్య・nombre・संख्या・எண்・numero…',
-  'ディスプレイを水面に見立て、雨の移ろいを表現した映像作品'];
+  'ディスプレイを水面に見立て，雨の移ろいを表現した映像作品'];
 var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "11月にまたみたい", "もう一息", "提案がある", "発見があった"]
 //リストに表示される感情のリストです
 var impressions_p = [2, 3, 5, 7, 11, 13, 17, 19];
-//それぞれの感情に合わせた興奮度を[0,1]の数値にしたリストです
+//それぞれの感情に合わせた興奮度を素数にしたリスト
 var picked_works = [];
 var current_works_impression = 1;
 var works_impression = [1,1,1];
@@ -283,7 +283,7 @@ function to_back() {
 
 function to_fitst(){
   picked_works = [];
-  comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
+  comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください．</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
   current_works_impression = 1;
   works_impression = [];
 }
