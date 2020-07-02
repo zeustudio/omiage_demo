@@ -194,9 +194,30 @@ function to_next() {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_back").style.display = "none";
     document.getElementById("to_first").style.display = "block";
-    const user_text = document.getElementById("area1").value;
+    var user_text = document.getElementById("area1").value;
     console.log(user_text);
 
+    const store = new SteinStore(
+      "https://api.steinhq.com/v1/storages/5efdf0f283c30d0425e2c5c3"
+    );
+  
+    store
+      .append("Sheet1", [
+        {
+          "impression":user_text,
+          "works_1":picked_works[0],
+          "works_2":picked_works[1],
+          "works_3":picked_works[2],
+          "iris_11":works_impression[0],
+          "iris_12":works_impression[1],
+          "iris_13":works_impression[2],
+        }
+      ])
+      .then(res => {
+        console.log(res);
+      });
+    
+    
     console.log("csrf-token", $('meta[name="csrf-token"]').attr('content'))
     $.ajaxSetup({
       headers: {
