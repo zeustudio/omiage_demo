@@ -20,13 +20,27 @@ var works_desc = ['あなたがつけている色眼鏡は何色だろうか，�
   'これは井戸の生配信である．限られた素材を使う蛙の表現とはー',
   '数・數・number・número・संख्या・رقم・Число・সংখ্যা・数字・nummer・nomer・숫자・ਗਿਣਤੀ・సంఖ్య・nombre・संख्या・எண்・numero…'
 ];
-var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "11月にまたみたい", "もう一息", "提案がある", "発見があった"]
+var impressions = ["楽しい", "嬉しい", "視点が変わった", "愉快だった", "また体験したい", "もう一息", "提案がある", "発見があった"]
 //リストに表示される感情のリストです
 var impressions_p = [2, 3, 5, 7, 11, 13, 17, 19];
 //それぞれの感情に合わせた興奮度を素数にしたリスト
 var picked_works = [];
 var current_works_impression = 1;
+var works_impression_n=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 var works_impression = [1,1,1];
+var colorWorks = [
+  [100, 100, 200], //3 '展示空間',
+  [100, 200, 150], //1 '気配の振る舞い',
+  [200, 50, 200], //5 '内と外',
+  [200, 50, 50], //7 'emotional distance',
+  [150, 100, 200], //2 'オーディオレーシングゲーム',
+  [200, 150, 100], //0 'ぼやける境界',
+  [50, 50, 200], //9 '対雨',
+  [50, 200, 200], //4 'graviter',
+  [200, 200, 50], //6 '居の中の蛙',
+  [50, 200, 50], //8 'N.U.M',
+  [0, 0, 0] //10 '黒線'
+];
 
 window.onload = function () {
 
@@ -79,13 +93,29 @@ function counting(e) {
 }
 //リスト"picked_works"に選んだ作品を順番に入れています
 
+function hex(num) {
+  // 10進数を16進数に変換する
+  var hex = String(num.toString(16));
+  if (num < 16) hex = "00";
+  hex = hex.slice(-2);
+  return hex;
+}
 
 function impressed(e) {
   var e = e || window.event;
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
   current_works_impression = current_works_impression * impressions_p[elemId];
-  console.log(current_works_impression);
+  var current_works = picked_works[count_items - 2];
+  var current_color = colorWorks[current_works];
+  
+  works_impression_n[current_works][elemId]++
+
+  window.event.srcElement.style.border = "1px solid #" + hex(current_color[0]).slice(-2) + hex(current_color[1]).slice(-2) + hex(current_color[2]).slice(-2);
+  window.event.srcElement.value = impressions[elemId] + "+"+works_impression_n[current_works][elemId];
+  
+  
+
 }
 
 // 感情がクリックされたときに走るfunctionです．
@@ -287,4 +317,5 @@ function to_fitst(){
   comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください．</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
   current_works_impression = 1;
   works_impression = [];
+  works_impression_n=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 }
