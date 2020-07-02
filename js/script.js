@@ -119,11 +119,11 @@ function impressed(e) {
   console.log(current_works);
   console.log(elemId);
 
-  works_impression_n[current_works][elemId]++;
+  works_impression_n[count_items - 2][elemId]++;
 
-  console.log(works_impression_n[current_works][elemId]);
+  console.log(works_impression_n[count_items - 2][elemId]);
   window.event.srcElement.style.border = "1px solid #" + hex(current_color[0]).slice(-2) + hex(current_color[1]).slice(-2) + hex(current_color[2]).slice(-2);
-  window.event.srcElement.value = impressions[elemId] + "+"+works_impression_n[current_works][elemId];
+  window.event.srcElement.value = impressions[elemId] + "+"+works_impression_n[count_items - 2][elemId];
   
   
 
