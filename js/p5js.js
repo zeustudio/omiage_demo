@@ -5,18 +5,26 @@ var lissajousPoints_works1 = [];
 var lissajousPoints_works2 = [];
 var lissajousPoints_works3 = [];
 
+var divisors1 = [];
+var divisors2 = [];
+var divisors3 = [];
+
+var phi = -90;
 var freqX = 10;
 var freqY = 10;
-var phi = -90;
-
 var modFreqX = 1;
 var modFreqY = 2;
 
+var freqX_works = 2;
+var freqY_works = 3;
+var modFreqX_works = 7;
+var modFreqY_works = 8;
+
 var lineWeight = 0.1;
-var lineColor;
-var lineColor_works1;
-var lineColor_works2;
-var lineColor_works3;
+// var lineColor;
+// var lineColor_works1;
+// var lineColor_works2;
+// var lineColor_works3;
 var lineAlpha = 100; //透明度の最大値
 
 var connectionRadius = 80; //描写する線分の最大値
@@ -56,7 +64,7 @@ var colorWorks = [
     [200, 50, 50], //7 'emotional distance',
     [50, 200, 50], //8 'N.U.M',
     [50, 50, 200], //9 '対雨',
-    [0, 0, 0] //10 '未選択'
+    [0, 0, 0] //10 '黒線'
 ];
 
 
@@ -138,8 +146,8 @@ function drawLissajous_intro() {
 function calculateLissajousPoints_works1() {
   for (var i = 0; i <= pointCount_works; i++) {
     var angle = map(i, 0, pointCount_works, 0, TAU);
-    var x = sin(angle * (freqX + 30) + radians(phi)) * cos(angle * modFreqX);
-    var y = sin(angle * freqY) * cos(angle * modFreqY);
+    var x = sin(angle * (freqX_works + divisors1[0] + divisors1[1]) + radians(phi)) * cos(angle * (modFreqX_works + divisors1[2] + divisors1[3]));
+    var y = sin(angle * (freqY_works + divisors1[4] + divisors1[5])) * cos(angle * (modFreqY_works + divisors1[6] + divisors1[7]));
     x *= width / 2 - 40;
     y *= height / 2 - 40;
     lissajousPoints_works1[i] = createVector(x, y);
@@ -170,8 +178,8 @@ function drawLissajous_works1() {
 function calculateLissajousPoints_works2() {
   for (var i = 0; i <= pointCount_works; i++) {
     var angle = map(i, 0, pointCount_works, 0, TAU);
-    var x = sin(angle * (freqX + 2) + radians(phi)) * cos(angle * modFreqX);
-    var y = sin(angle * freqY) * cos(angle * modFreqY);
+    var x = sin(angle * (freqX_works + divisors2[0] + divisors2[1]) + radians(phi)) * cos(angle * (modFreqX_works + divisors2[2] + divisors2[3]));
+    var y = sin(angle * (freqY_works + divisors2[4] + divisors2[5])) * cos(angle * (modFreqY_works + divisors2[6] + divisors2[7]));
     x *= width / 2 - 40;
     y *= height / 2 - 40;
     lissajousPoints_works2[i] = createVector(x, y);
@@ -202,8 +210,8 @@ function drawLissajous_works2() {
 function calculateLissajousPoints_works3() {
   for (var i = 0; i <= pointCount_works; i++) {
     var angle = map(i, 0, pointCount_works, 0, TAU);
-    var x = sin(angle * (freqX + 4) + radians(phi)) * cos(angle * modFreqX);
-    var y = sin(angle * freqY) * cos(angle * modFreqY);
+    var x = sin(angle * (freqX_works + divisors3[0] + divisors3[1]) + radians(phi)) * cos(angle * (modFreqX_works + divisors3[2] + divisors3[3]));
+    var y = sin(angle * (freqY_works + divisors3[4] + divisors3[5])) * cos(angle * (modFreqY_works + divisors3[6] + divisors3[7]));
     x *= width / 2 - 40;
     y *= height / 2 - 40;
     lissajousPoints_works3[i] = createVector(x, y);
@@ -234,6 +242,10 @@ function drawLissajous_works3() {
 function drawWorks_triger() {
   if (count_items == 6) {
     // background(255); //白背景で前回の描画図形を消す
+    impressions_count_1();
+    impressions_count_2();
+    impressions_count_3();
+
     s1 = 1;
     s2 = 1;
     s3 = 1;
@@ -243,38 +255,66 @@ function drawWorks_triger() {
 
 //感情ボタン反映
 //素因数分解
-function impressions_count(p) {
-    const box = works_impression[p];
-      let value = box.value;
-      let exponent = 0;
-      let divisors = [];
 
-      for(let number = 2; number <= value; number++) {
-        //前述の①の処理
-        if(value % number === 0) {
-          //前の約数の分のカウントをリセットする
-          exponent = 0;
-          //同様に②の処理
-          while(value % number === 0) {
+function impressions_count_1() {
+    var value1 = works_impression[0];
+    var exponent1 = 0;
+    for(var number1 = 2; number1 <= value1; number1++) {
+        if(value1 % number1 === 0) {
+          exponent1 = 0; //前の約数の分のカウントをリセットする
+          while(value1 % number1 === 0) {
             //valueをnumberで除算していき、ループごとにカウントを一つ増やして累乗の指数を求める
-            exponent++;
-            value /= number;
+            exponent1++;
+            value1 /= number1;
           }
-          if(value % number === 0) {
-            //前の約数の分のカウントをリセットする
-            exponent = 0;
-            //同様に②の処理
-            while(value % number === 0) {
-              //valueをnumberで除算していき、ループごとにカウントを一つ増やして累乗の指数を求める
-              exponent++;
-              value /= number;
-            }
-          //一つ目の約数と指数を配列divisorsにpush
-          divisors.push(exponent);
+          divisors1.push(exponent1);
+        }
+        if(value1 % number1 > 0) {
+          exponent1 = 0; //前の約数の分のカウントをリセットする
+          divisors1.push(exponent1);
         }
         //この流れを(value / number === 1)になるまで繰り返す
-      }
-      //連続して使用する時のために一度中身を空にする
-      box.value = null;
-  }
+    }
+}
+
+function impressions_count_2() {
+    var value2 = works_impression[1];
+    var exponent2 = 0;
+    for(var number2 = 2; number2 <= value2; number2++) {
+        if(value2 % number2 === 0) {
+          exponent2 = 0; //前の約数の分のカウントをリセットする
+          while(value2 % number2 === 0) {
+            //valueをnumberで除算していき、ループごとにカウントを一つ増やして累乗の指数を求める
+            exponent2++;
+            value2 /= number2;
+          }
+          divisors2.push(exponent2);
+        }
+        if(value2 % number2 > 0) {
+          exponent2 = 0; //前の約数の分のカウントをリセットする
+          divisors2.push(exponent2);
+        }
+        //この流れを(value / number === 1)になるまで繰り返す
+    }
+}
+
+function impressions_count_3() {
+    var value3 = works_impression[2];
+    var exponent3 = 0;
+    for(var number3 = 2; number3 <= value3; number3++) {
+        if(value3 % number3 === 0) {
+          exponent3 = 0; //前の約数の分のカウントをリセットする
+          while(value3 % number3 === 0) {
+            //valueをnumberで除算していき、ループごとにカウントを一つ増やして累乗の指数を求める
+            exponent3++;
+            value3 /= number3;
+          }
+          divisors3.push(exponent3);
+        }
+        if(value3 % number3 > 0) {
+          exponent3 = 0; //前の約数の分のカウントをリセットする
+          divisors3.push(exponent3);
+        }
+        //この流れを(value / number === 1)になるまで繰り返す
+    }
 }
