@@ -1,3 +1,4 @@
+
 var second_text = '<p id="comments"> 気になった作品を3つ選択してください</p> <div id=img_works>';
 var works_1_text = '<p id="h2_works_1">あなたはこの作品にどのような感情を持ちましたか？</p>';
 var works_2_text = '<p id="h2_works_2">あなたはこの作品にどのような感情を持ちましたか？</p>';
@@ -195,6 +196,13 @@ function to_next() {
     document.getElementById("to_first").style.display = "block";
     const user_text = document.getElementById("area1").value;
     console.log(user_text);
+
+    console.log("csrf-token", $('meta[name="csrf-token"]').attr('content'))
+    $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
     $.ajax({
       type: "POST",
       url: "https://extra2020-dev.iiiexhibition.com/souvenirs.json",
@@ -221,7 +229,7 @@ function to_next() {
       error: function(e) {
           console.log(e);
       }
-  })
+   })
   }
 }
 
