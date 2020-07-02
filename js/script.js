@@ -284,6 +284,6 @@ function to_back() {
 function to_fitst(){
   picked_works = [];
   comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
-  current_works_impression = 0;
+  current_works_impression = 1;
   works_impression = [];
 }
