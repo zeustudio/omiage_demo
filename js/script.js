@@ -44,13 +44,20 @@ var colorWorks = [
 
 window.onload = function () {
 
-  for (let step = 0; step < works.length-1; step++){
+  for (let step = 0; step < works.length - 1; step++) {
     second_text = second_text
       + '<img src="img_works/'
       + step
       + '.png" id='
       + step
-      + ' onclick="counting();">';
+      + ' onclick="counting();this.src=\'works_title/'
+      +step
+      + '.png\'" onmouseover="this.src=\'works_title/'
+      + step
+      + '.png\'"'
+      + ' onmouseout="this.src=\'img_works/'
+      + step
+      +'.png\'"> ';
   }
   second_text+'</div>'
   document.getElementById('second').innerHTML = second_text;
@@ -86,6 +93,7 @@ function counting(e) {
   var elemId = elem.id;
   picked_works.push(elemId);
   console.log(picked_works)
+  window.event.srcElement.onmouseout = "";
   if (picked_works.length == 3) {
     to_next()
     document.getElementById("to_next").style.display = "block";
@@ -108,9 +116,12 @@ function impressed(e) {
   current_works_impression = current_works_impression * impressions_p[elemId];
   var current_works = picked_works[count_items - 2];
   var current_color = colorWorks[current_works];
-  
-  works_impression_n[current_works][elemId]++
+  console.log(current_works);
+  console.log(elemId);
 
+  works_impression_n[current_works][elemId]++;
+
+  console.log(works_impression_n[current_works][elemId]);
   window.event.srcElement.style.border = "1px solid #" + hex(current_color[0]).slice(-2) + hex(current_color[1]).slice(-2) + hex(current_color[2]).slice(-2);
   window.event.srcElement.value = impressions[elemId] + "+"+works_impression_n[current_works][elemId];
   
