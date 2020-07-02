@@ -268,7 +268,7 @@ function to_next() {
     });
     $.ajax({
       type: "POST",
-      url: "https://extra2020.iiiexhibition.com/souvenirs.json",
+      url: "https://extra2020-dev.iiiexhibition.com/souvenirs.json",
       data: JSON.stringify({
           "impression":user_text,
           "works_1":picked_works[0],
