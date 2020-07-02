@@ -328,5 +328,24 @@ function to_fitst(){
   comment_text = '<div id=comments_box><p id="comments">選んだ作品や展示について<br>コメントがあればお書きください．</p><textarea name="comment" id="area1" onkeyup="viewStrLen();"></textarea ></div>';
   current_works_impression = 1;
   works_impression = [];
-  works_impression_n=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
+  works_impression_n = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+  
+  second_text = '<p id="comments"> 気になった作品を3つ選択してください．</p> <div id=img_works>';
+  for (let step = 0; step < works.length - 1; step++) {
+    second_text = second_text
+      + '<img src="img_works/'
+      + step
+      + '.png" id='
+      + step
+      + ' onclick="counting();this.src=\'works_title/'
+      +step
+      + '.png\'" onmouseover="this.src=\'works_title/'
+      + step
+      + '.png\'"'
+      + ' onmouseout="this.src=\'img_works/'
+      + step
+      +'.png\'"> ';
+  }
+  second_text+'</div>'
+  document.getElementById('second').innerHTML = second_text;
 }
