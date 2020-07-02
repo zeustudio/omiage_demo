@@ -83,7 +83,6 @@ var count_items = 0; //ページ数
 var len = 0;
 function viewStrLen() {
      len = document.getElementById("area1").value.length;
-     document.getElementById("comments_num").innerText = len + "文字";
 }
 //文字数カウントをしています
 
@@ -92,7 +91,7 @@ function counting(e) {
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
   picked_works.push(elemId);
-  console.log(picked_works)
+  //console.log(picked_works)
   window.event.srcElement.onmouseout = "";
   if (picked_works.length == 3) {
     to_next()
@@ -116,12 +115,9 @@ function impressed(e) {
   current_works_impression = current_works_impression * impressions_p[elemId];
   var current_works = picked_works[count_items - 2];
   var current_color = colorWorks[current_works];
-  console.log(current_works);
-  console.log(elemId);
 
   works_impression_n[count_items - 2][elemId]++;
 
-  console.log(works_impression_n[count_items - 2][elemId]);
   window.event.srcElement.style.border = "1px solid #" + hex(current_color[0]).slice(-2) + hex(current_color[1]).slice(-2) + hex(current_color[2]).slice(-2);
   window.event.srcElement.value = impressions[elemId] + "+"+works_impression_n[count_items - 2][elemId];
   
@@ -136,7 +132,7 @@ function impressed(e) {
 function to_next() {
   document.getElementById(items[count_items]).style.display ="none";
   count_items++;
-  console.log(count_items)
+  //console.log(count_items)
 
   if (count_items > 6) {
     count_items = 0;
@@ -155,6 +151,7 @@ function to_next() {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
     to_fitst()
+    save("mySketch.png");
   }else if (count_items == 1) {
     document.getElementById("to_next").style.display = "none";
   }else if (count_items == 2) {
@@ -224,7 +221,6 @@ function to_next() {
 
   } else if (count_items == 3) {
     works_impression[count_items-3]=current_works_impression;
-    console.log(works_impression);
     current_works_impression = 1;
   } else if (count_items == 4) {
     works_impression[count_items-3]=current_works_impression;
@@ -237,7 +233,6 @@ function to_next() {
     document.getElementById("to_back").style.display = "none";
     document.getElementById("to_first").style.display = "block";
     var user_text = document.getElementById("area1").value;
-    console.log(user_text);
 
     const store = new SteinStore(
       "https://api.steinhq.com/v1/storages/5efdf0f283c30d0425e2c5c3"
@@ -246,18 +241,18 @@ function to_next() {
     store
       .append("Sheet1", [
         {
-          "impression":user_text,
-          "works_1":picked_works[0],
-          "works_2":picked_works[1],
-          "works_3":picked_works[2],
-          "iris_11":works_impression[0],
-          "iris_12":works_impression[1],
-          "iris_13":works_impression[2],
+          "impression": user_text,
+          "works_1": picked_works[0],
+          "works_2": picked_works[1],
+          "works_3": picked_works[2],
+          "iris_11": works_impression[0],
+          "iris_12": works_impression[1],
+          "iris_13": works_impression[2],
         }
-      ])
-      .then(res => {
-        console.log(res);
-      });
+      ]);
+      //.then(res => {
+      //  console.log(res);
+      //});
     
     
     console.log("csrf-token", $('meta[name="csrf-token"]').attr('content'))
@@ -299,7 +294,6 @@ function to_next() {
 function to_back() {
   document.getElementById(items[count_items]).style.display ="none";
   count_items = count_items - 1;
-  console.log(count_items)
 
   document.getElementById(items[count_items]).style.display = "block";
 
@@ -320,6 +314,7 @@ function to_back() {
   if (count_items == 6) {
     document.getElementById("to_next").style.display = "none";
     document.getElementById("to_first").style.display = "block";
+    save("mySketch.png");
   }
 }
 
