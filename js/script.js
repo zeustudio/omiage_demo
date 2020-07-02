@@ -83,7 +83,7 @@ function impressed(e) {
   var e = e || window.event;
   var elem = e.target || e.srcElement;
   var elemId = elem.id;
-  current_works_impression = current_works_impression + impressions_p[elemId];
+  current_works_impression = current_works_impression * impressions_p[elemId];
   console.log(current_works_impression);
 }
 
