@@ -28,7 +28,7 @@ var picked_works = [];
 var current_works_impression = 1;
 var works_impression_n=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 var works_impression = [1,1,1];
-var colorWorks = [
+var colorWorks_tolist = [
   [100, 100, 200], //3 '展示空間',
   [100, 200, 150], //1 '気配の振る舞い',
   [200, 50, 200], //5 '内と外',
@@ -114,7 +114,7 @@ function impressed(e) {
   var elemId = elem.id;
   current_works_impression = current_works_impression * impressions_p[elemId];
   var current_works = picked_works[count_items - 2];
-  var current_color = colorWorks[current_works];
+  var current_color = colorWorks_tolist[current_works];
 
   works_impression_n[count_items - 2][elemId]++;
 
