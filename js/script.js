@@ -132,7 +132,13 @@ function to_next() {
 
   document.getElementById(items[count_items]).style.display = "block";
 
- 
+  let checkbox = document.querySelectorAll('input[type="checkbox"]');
+  
+  if (checkbox[0].checked) {
+    $('#to_next').modaal({
+      content_source: '#button_speak'
+    });
+  }
  
   if (count_items == 0) {
     document.getElementById("to_next").style.display = "block";
