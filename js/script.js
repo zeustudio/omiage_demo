@@ -137,10 +137,14 @@ function to_next() {
   if (count_items == 0) {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
+    document.getElementById("to_speak").style.display = "block";
+    document.getElementById("to_next").textContent="体験する→"
     to_fitst()
     save("mySketch.png");
-  }else if (count_items == 1) {
+  } else if (count_items == 1) {
+    document.getElementById("to_next").textContent="次に進む→"
     document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_speak").style.display = "none";
   }else if (count_items == 2) {
     document.getElementById("to_back").style.display = "block";
   works_1_text = '<div id=works_box><img src="img_works/'
@@ -291,12 +295,18 @@ function to_back() {
     document.getElementById("to_next").style.display = "block";
     document.getElementById("to_first").style.display = "none";
     document.getElementById("to_back").style.display = "none";
+    document.getElementById("to_speak").style.display = "block";
+    document.getElementById("to_next").textContent="体験する→"
+
   }else if (count_items == 1) {
     document.getElementById("to_next").style.display = "none";
+    document.getElementById("to_speak").style.display = "none";
     document.getElementById("to_back").style.display = "none";
+    document.getElementById("to_next").textContent="次に進む→"
     to_fitst()
   } else {
     document.getElementById("to_back").style.display = "block";
+    document.getElementById("to_next").textContent="次に進む→"
   }
   
   if (count_items == 6) {
